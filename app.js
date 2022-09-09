@@ -32,9 +32,9 @@ buttonElement === null || buttonElement === void 0 ? void 0 : buttonElement.addE
 });
 const myPromise = new Promise((resolve, reject) => {
     setTimeout(() => {
-        resolve('It worked!');
+        resolve('It worked!, it also worked');
     }, 1000);
 });
 myPromise.then((result) => {
-    console.log('promiseResponse', result);
+    console.log('promiseResponse', result.split(','));
 });

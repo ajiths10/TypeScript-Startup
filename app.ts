@@ -43,12 +43,12 @@ buttonElement?.addEventListener("click", () => {
   console.log(numResults, textResults);
 });
 
-const myPromise = new Promise((resolve,reject) => {
+const myPromise = new Promise<string>((resolve,reject) => {
     setTimeout(() => {
-        resolve('It worked!');
+        resolve('It worked!, it also worked');
     }, 1000);
 })
 
 myPromise.then((result ) => {
-    console.log('promiseResponse',result )
+    console.log('promiseResponse',result.split(',') )
 })
