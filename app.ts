@@ -5,7 +5,15 @@ const buttonElement = document.querySelector("button")!;
 const numResults: number[] = [];
 const textResults: string[] = [];
 
-function add(num1: number | string, num2: number | string) {
+type NumorString = number | string;
+type result = { val: number; timestamp: Date }
+
+interface ResultObj {
+    val: number; 
+    timestamp: Date
+}
+
+function add(num1: NumorString, num2: NumorString) {
   if (typeof num1 === "number" && typeof num2 === "number") {
     return num1 + num2;
   } else if (typeof num1 === "string" && typeof num2 === "string") {
@@ -13,7 +21,7 @@ function add(num1: number | string, num2: number | string) {
   }
 }
 
-function printRsults(resultObj: { val: number; timestamp: Date }) {
+function printRsults(resultObj: ResultObj) {
   console.log(resultObj);
 }
 
@@ -34,3 +42,13 @@ buttonElement?.addEventListener("click", () => {
 
   console.log(numResults, textResults);
 });
+
+const myPromise = new Promise((resolve,reject) => {
+    setTimeout(() => {
+        resolve('It worked!');
+    }, 1000);
+})
+
+myPromise.then((result ) => {
+    console.log('promiseResponse',result )
+})

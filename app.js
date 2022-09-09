@@ -30,3 +30,11 @@ buttonElement === null || buttonElement === void 0 ? void 0 : buttonElement.addE
     printRsults({ val: result, timestamp: new Date() });
     console.log(numResults, textResults);
 });
+const myPromise = new Promise((resolve, reject) => {
+    setTimeout(() => {
+        resolve('It worked!');
+    }, 1000);
+});
+myPromise.then((result) => {
+    console.log('promiseResponse', result);
+});
