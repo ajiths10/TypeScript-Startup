@@ -10,6 +10,9 @@ function add(num1, num2) {
         return num1 + " " + num2;
     }
 }
+function printRsults(resultObj) {
+    console.log(resultObj);
+}
 console.log(add(1, 6));
 // console.log(add('1','6'))
 buttonElement === null || buttonElement === void 0 ? void 0 : buttonElement.addEventListener("click", () => {
@@ -20,4 +23,5 @@ buttonElement === null || buttonElement === void 0 ? void 0 : buttonElement.addE
     console.log(result);
     console.log(stringResult);
     //console.log(add(true, false));
+    printRsults({ val: result, timestamp: new Date() });
 });

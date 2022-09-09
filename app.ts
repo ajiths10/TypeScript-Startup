@@ -10,6 +10,10 @@ function add(num1: number | string, num2: number | string) {
   }
 }
 
+function printRsults(resultObj: {val: number; timestamp: Date }) {
+    console.log(resultObj)
+}
+
 console.log(add(1, 6));
 // console.log(add('1','6'))
 
@@ -21,4 +25,6 @@ buttonElement?.addEventListener("click", () => {
   console.log(result);
   console.log(stringResult);
   //console.log(add(true, false));
+
+  printRsults({val: result as number, timestamp: new Date()})
 });
