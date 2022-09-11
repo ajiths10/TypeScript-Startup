@@ -41,13 +41,16 @@ buttonElement === null || buttonElement === void 0 ? void 0 : buttonElement.addE
 });
 const myPromise = new Promise((resolve, reject) => {
     setTimeout(() => {
-        resolve('Runner one');
+        resolve('"promiseResponse1", Runner one');
     }, 1000);
 });
 const hoisting = (params) => __awaiter(void 0, void 0, void 0, function* () {
     console.log('Runner two');
     const result = yield myPromise;
-    console.log("promiseResponse1", result.split(","));
+    console.log(result.split(","));
     console.log('Runner three');
 });
+setTimeout(() => {
+    console.log('Runner four');
+}, 0);
 hoisting('hello');

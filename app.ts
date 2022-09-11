@@ -45,15 +45,19 @@ buttonElement?.addEventListener("click", () => {
 
 const myPromise = new Promise<string>((resolve, reject) => {
   setTimeout(() => {
-    resolve('Runner one');
+    resolve('"promiseResponse1", Runner one');
   }, 1000);
 });
 
-const hoisting = async (params: any) => {
+const hoisting = async (params: string) => {
   console.log('Runner two')
   const result = await myPromise;
-  console.log("promiseResponse1", result.split(","));
+  console.log( result.split(","));
   console.log('Runner three')
 };
 
- hoisting('hello')
+setTimeout(() => {
+  console.log('Runner four')
+}, 0);
+
+hoisting('hello')
