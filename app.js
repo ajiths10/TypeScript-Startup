@@ -1,4 +1,13 @@
 "use strict";
+var __awaiter = (this && this.__awaiter) || function (thisArg, _arguments, P, generator) {
+    function adopt(value) { return value instanceof P ? value : new P(function (resolve) { resolve(value); }); }
+    return new (P || (P = Promise))(function (resolve, reject) {
+        function fulfilled(value) { try { step(generator.next(value)); } catch (e) { reject(e); } }
+        function rejected(value) { try { step(generator["throw"](value)); } catch (e) { reject(e); } }
+        function step(result) { result.done ? resolve(result.value) : adopt(result.value).then(fulfilled, rejected); }
+        step((generator = generator.apply(thisArg, _arguments || [])).next());
+    });
+};
 const num1Element = document.getElementById("num1");
 const num2Element = document.getElementById("num2");
 const buttonElement = document.querySelector("button");
@@ -32,9 +41,13 @@ buttonElement === null || buttonElement === void 0 ? void 0 : buttonElement.addE
 });
 const myPromise = new Promise((resolve, reject) => {
     setTimeout(() => {
-        resolve('It worked!, it also worked');
+        resolve('Runner one');
     }, 1000);
 });
-myPromise.then((result) => {
-    console.log('promiseResponse', result.split(','));
+const hoisting = (params) => __awaiter(void 0, void 0, void 0, function* () {
+    console.log('Runner two');
+    const result = yield myPromise;
+    console.log("promiseResponse1", result.split(","));
+    console.log('Runner three');
 });
+hoisting('hello');

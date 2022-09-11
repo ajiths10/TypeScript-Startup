@@ -6,11 +6,11 @@ const numResults: number[] = [];
 const textResults: string[] = [];
 
 type NumorString = number | string;
-type result = { val: number; timestamp: Date }
+type result = { val: number; timestamp: Date };
 
 interface ResultObj {
-    val: number; 
-    timestamp: Date
+  val: number;
+  timestamp: Date;
 }
 
 function add(num1: NumorString, num2: NumorString) {
@@ -43,12 +43,17 @@ buttonElement?.addEventListener("click", () => {
   console.log(numResults, textResults);
 });
 
-const myPromise = new Promise<string>((resolve,reject) => {
-    setTimeout(() => {
-        resolve('It worked!, it also worked');
-    }, 1000);
-})
+const myPromise = new Promise<string>((resolve, reject) => {
+  setTimeout(() => {
+    resolve('Runner one');
+  }, 1000);
+});
 
-myPromise.then((result ) => {
-    console.log('promiseResponse',result.split(',') )
-})
+const hoisting = async (params: any) => {
+  console.log('Runner two')
+  const result = await myPromise;
+  console.log("promiseResponse1", result.split(","));
+  console.log('Runner three')
+};
+
+ hoisting('hello')
